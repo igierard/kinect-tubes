@@ -38,7 +38,7 @@ function VelocityTube(opts){
     this.segmentsLength = opts.segmentsLength || 0.5;
     this.minDiamater = opts.minDiamater || 0.1;
     this.material = new T.MeshPhongMaterial({
-        color: (opts.color || 0xff0000), 
+        color: (opts.color || 0xffffff), 
         wireframe:false,
         transparent:true, 
         // alphaMap:this.texture

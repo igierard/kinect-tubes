@@ -31,7 +31,7 @@ var bodyParts = {
 
 function Body(opts){
 	opts = opts || {};
-	this.color =  opts.color || 0xff0000;
+	this.color =  opts.color || 0xffffff;
 	this.object = new T.Object3D();
 	this.parts = {};
 	this.partNumbers = [

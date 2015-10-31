@@ -15,7 +15,7 @@ var lastMouse = new T.Vector3(0,0,0);
 init();
 animate();
 
-
+var dirlight1,dirlight2;
 
 function init() {
 
@@ -28,9 +28,12 @@ function init() {
     geometry = new T.BoxGeometry( 2, 2, 2 );
     material = new T.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
 
-    var dirlight = new T.DirectionalLight(0xffffff,1.0);
-  dirlight.position.set(2,10,5);
-  scene.add(dirlight);
+    dirlight1 = new T.DirectionalLight(0xff0000,1.0);
+  dirlight1.position.set(2,10,5);
+  scene.add(dirlight1);
+    dirlight2 = new T.DirectionalLight(0x000ff,1.0);
+  dirlight2.position.set(2,-10,5);
+  scene.add(dirlight2);
     scene.add(new T.AxisHelper())
     renderer = new T.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -48,9 +51,11 @@ function animate() {
     requestAnimationFrame( animate );
     c++;
     camera.position.x = Math.sin(c*0.01)*10;
-    camera.position.x = Math.cos(c*0.01)*20;
+    // camera.position.z = Math.abs(Math.cos(c*0.005)*10);
     camera.lookAt(new T.Vector3(0,0,-3));
 
+    dirlight1.position.z = Math.sin(c*0.04)*10;
+    dirlight1.position.x = Math.cos(c*0.03)*10;
     // tube1.update(lastMouse);
     // var lastMouseT = lastMouse.clone().set(lastMouse.x * -1,lastMouse.y*-1,0);
     // tube2.update(lastMouseT);
